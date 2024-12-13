@@ -1,0 +1,73 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyP6UQd7VTAYGgk/KbAHG6L0",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Rajeshsharma33/EDGE-Project/blob/main/edge%20project%20\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 4,
+      "metadata": {
+        "id": "aEUUdIRZiS1W"
+      },
+      "outputs": [],
+      "source": [
+        "import csv\n",
+        "import pandas as pd\n",
+        "import matplotlib.pyplot as plt\n",
+        "import re\n",
+        "\n",
+        "# file\n",
+        "data_file = \"student_data.csv\"\n",
+        "output_file = \"updated_student_data.csv\"\n",
+        "\n",
+        "# sample data\n",
+        "def create_sample_data(file_path):\n",
+        "    data = [\n",
+        "        [\"Rajesh\", \"STU-10001\", \"CSE\", 85, 92, \"Yes\"],\n",
+        "        [\"Rifat\", \"STU-10002\", \"EEE\", 70, 60, \"No\"],\n",
+        "        [\"Tanmoy\", \"STU-10003\", \"English\", 95, 88, \"Yes\"],\n",
+        "        [\"Ayon\", \"STU-10004\", \"CEE\", 55, 40, \"No\"],\n",
+        "        [\"Minhajul\", \"STU-10005\", \"SWE\", 78, 75, \"Yes\"],\n",
+        "    ]\n",
+        "    columns = [\"Student Name\", \"Student ID\", \"Subject\", \"Score\", \"Attendance Percentage\", \"Assignment Completion\"]\n",
+        "    pd.DataFrame(data, columns=columns).to_csv(file_path, index=False)\n",
+        "\n",
+        "# File handling functions\n",
+        "def read_csv(file_path):\n",
+        "    try:\n",
+        "        return pd.read_csv(file_path)\n",
+        "    except FileNotFoundError:\n",
+        "        print(\"File not found. Creating sample data.\")\n",
+        "        create_sample_data(file_path)\n",
+        "        return pd.read_csv(file_path)\n",
+        "\n",
+        "def write_csv(data, file_path):\n",
+        "    data.to_csv(file_path, index=False)\n",
+        "    print(f\"Data saved to {file_path}\")"
+      ]
+    }
+  ]
+}
